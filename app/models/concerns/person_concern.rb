@@ -92,6 +92,18 @@ module PersonConcern
     longitude
   end
 
+  def address_for_geocoding
+    [street, city, state, zip].join(", ")
+  end
+
+  def needs_geocode?
+    address_changed? || lat.blank? || long.blank?
+  end
+
+  def address_changed?
+    street_changed? || city_changed? || state_changed? || zip_changed?
+  end
+
   included do
     validates :email, presence: true, email: true
     validates :first_name, presence: true
@@ -102,5 +114,8 @@ module PersonConcern
     validates :state, presence: true, inclusion: { in: VALID_STATES,
                                                    message: "is not a US State"}
     validates :zip, presence: true, zip_code: true
+
+    geocoded_by :address_for_geocoding
+    after_validation :geocode, if: ->(person){ person.needs_geocode? }
   end
 end
