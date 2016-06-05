@@ -56,6 +56,24 @@ RSpec.configure do |config|
   config.filter_rails_from_backtrace!
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
+
+  config.before(:all) do
+    Geocoder.configure(:lookup => :test)
+
+    Geocoder::Lookup::Test.set_default_stub(
+      [
+        {
+          'latitude'     => 40.7143528,
+          'longitude'    => -74.0059731,
+          'address'      => 'New York, NY, USA',
+          'state'        => 'New York',
+          'state_code'   => 'NY',
+          'country'      => 'United States',
+          'country_code' => 'US'
+        }
+      ]
+    )
+  end
 end
 
 # Define all available shoulda matchers for use with RSpec
