@@ -1,6 +1,10 @@
 class Doctor < ActiveRecord::Base
   include PersonConcern
 
+  # A more flushed out system would allow a doctor to have multiple specialties,
+  # the list of possible specialties be driven from a database table,
+  # and use a join table to associate doctors and their specialties + metadata
+
   SPECIALTIES = [
     'Orthopedist',
     'Opthamologist',

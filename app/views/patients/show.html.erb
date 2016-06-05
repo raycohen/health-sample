@@ -6,5 +6,10 @@
 
 <%= render partial: "shared/show_person", locals: { person: @patient} %>
 
+<p>
+  <strong>Ailment:</strong>
+  <%= @patient.ailment %>
+</p>
+
 <%= link_to 'Edit', edit_patient_path(@patient) %> |
 <%= link_to 'Back', patients_path %>

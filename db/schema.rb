@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160605191908) do
     t.string   "zip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "ailment"
   end
 
 end
