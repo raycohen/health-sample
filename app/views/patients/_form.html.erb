@@ -11,5 +11,10 @@
     </div>
   <% end %>
 
+  <p>
+    <%= f.label :ailment %><br>
+    <%= f.select :ailment, options_for_select(Patient::AILMENTS, @patient.ailment) %>
+  </p>
+
   <%= render partial: "shared/person_form", locals: { form: f, person: @patient } %>
 <% end %>

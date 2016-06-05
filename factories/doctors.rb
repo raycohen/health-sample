@@ -8,5 +8,6 @@ FactoryGirl.define do
     city 'New York'
     state 'NY'
     zip '10012'
+    specialty 'Orthopedist'
   end
 end

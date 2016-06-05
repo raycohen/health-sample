@@ -11,6 +11,7 @@
       <th>City</th>
       <th>State</th>
       <th>Zip</th>
+      <th>Ailment</th>
       <th colspan="2"></th>
     </tr>
   </thead>
@@ -24,6 +25,7 @@
         <td><%= patient.city %></td>
         <td><%= patient.state_name %></td>
         <td><%= patient.zip %></td>
+        <td><%= patient.ailment %></td>
         <td><%= link_to 'Edit', edit_patient_path(patient) %></td>
         <td><%= link_to 'Delete', patient, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>

@@ -15,4 +15,9 @@ describe Doctor do
       expect(name.starts_with?('Dr. ')).to be_truthy
     end
   end
+
+  specify 'that the the validation rule for specialty exists' do
+    expect(subject)
+      .to validate_inclusion_of(:specialty).in_array(Doctor::SPECIALTIES)
+  end
 end
