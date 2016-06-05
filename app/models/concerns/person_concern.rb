@@ -84,6 +84,14 @@ module PersonConcern
     US_STATES[state]
   end
 
+  def lat
+    latitude
+  end
+
+  def long
+    longitude
+  end
+
   included do
     validates :email, presence: true, email: true
     validates :first_name, presence: true
