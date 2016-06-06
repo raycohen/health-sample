@@ -93,6 +93,10 @@ module PersonConcern
   end
 
   def address_for_geocoding
+    display_address
+  end
+
+  def display_address
     [street, city, state, zip].join(", ")
   end
 
