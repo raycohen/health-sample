@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  resources :appointments do
+    collection do
+      get 'book/:patient_id' => 'appointments#book', as: :book
+    end
+  end
   resources :doctors
   resources :patients
   # The priority is based upon order of creation: first created -> highest priority.
