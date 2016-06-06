@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :appointments do
     collection do
-      get 'book/:patient_id' => 'appointments#book'
+      get 'book/:patient_id' => 'appointments#book', as: :book
     end
   end
   resources :doctors
