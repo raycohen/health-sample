@@ -30,6 +30,10 @@ class Doctor < ActiveRecord::Base
     AILMENT_TO_SPECIALTY_MAP[ailment]
   end
 
+  def has_specialty_for_ailment?(ailment)
+    specialty == AILMENT_TO_SPECIALTY_MAP[ailment]
+  end
+
   def name
     "Dr. #{super}"
   end
