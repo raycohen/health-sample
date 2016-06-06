@@ -22,8 +22,8 @@ class Appointment < ActiveRecord::Base
   private
 
   def send_emails
-    AppointmentMailer.patient_appointment_created(self)
-    AppointmentMailer.doctor_appointment_created(self)
+    AppointmentMailer.patient_appointment_created(self).deliver_later
+    AppointmentMailer.doctor_appointment_created(self).deliver_later
   end
 
   def start_time_three_days_in_future
