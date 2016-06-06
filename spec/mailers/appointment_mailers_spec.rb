@@ -19,7 +19,7 @@ describe AppointmentMailer do
 
   describe '#patient_appointment_created' do
     subject do
-      described_class.patient_appointment_created(appointment).deliver
+      described_class.patient_appointment_created(appointment).deliver_now
     end
 
     it 'is sent to the patient' do
@@ -31,7 +31,7 @@ describe AppointmentMailer do
   
   describe '#doctor_appointment_created' do
     subject do
-      described_class.doctor_appointment_created(appointment).deliver
+      described_class.doctor_appointment_created(appointment).deliver_now
     end
 
     it 'is sent to the doctor' do
